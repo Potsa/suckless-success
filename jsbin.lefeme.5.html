@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Potsa (http://jsbin.com/lefeme/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Színóra">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  <title>Színóra</title>
+<style id="jsbin-css">
+{ margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+}
+#canvas{
+  height: 100% ;
+  width: 100% ;
+  margin: 0;
+  padding: 0;
+  
+}
+#name {
+   font-family: 'Poiret One', cursive;
+   font-size: 50px;
+   text-align: center;
+   position: relative;
+   bottom: -30%;
+   margin-top: -25px;
+   color: white;
+}
+#clock {
+  text-align: center;
+  position: relative;
+  bottom: -50%;
+  font-family: 'Poiret One', cursive;
+  font-size: 80px;
+  margin-top: -40px;
+  color: white;
+}
+</style>
+</head>
+<body background = http://wallpapercave.com/wp/wjjp4Zy.jpg>
+  <div id="canvas">
+    <div id="name"> Épp ilyen szín van drága Palkóm!</div>
+    <div id="clock">12:13:14</div>
+  </div> 
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var rgbaColor = 'rgba(' + hours + ','+ minutes +',' + seconds +',0.88)';
+
+  document.getElementById('clock').innerHTML = clockFace;
+  document.getElementById('canvas').style.background = rgbaColor;
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+colorClock();
+</script>
+</body>
+</html>
